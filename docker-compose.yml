@@ -19,7 +19,7 @@ services:
 
   db:
     image: postgres:13-alpine
-    environmentgit:
+    environment:
       - POSTGRES_DB=app
       - POSTGRES_USER=postgresdb
       - POSTGRES_PASSWORD=supersecretpassword

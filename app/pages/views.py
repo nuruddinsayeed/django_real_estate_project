@@ -1,9 +1,13 @@
-
-
-from django.http.response import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
     """reders the index page"""
 
-    return HttpResponse('<h1>Hello word</h>')
+    return render(request, "pages/index.html", )
+
+
+def about(request):
+    """renders the About page"""
+
+    return render(request, "pages/about.html",)

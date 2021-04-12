@@ -28,12 +28,12 @@ Thank you for your time.
 
 ## Installation
 
-`$ git clone https://github.com/nuruddinsayeed/django_real_estate_project.git`
-`$ cd (enter the downloaded directory)`
-`$ docker build .`
-`$ docker-compose build`
-`$ docker-compose up`
-`$docker-compose run app sh -c "python manage.py runserver"`
+```$ git clone https://github.com/nuruddinsayeed/django_real_estate_project.git```
+```$ cd (enter the downloaded directory)```
+```$ docker build .```
+```$ docker-compose build```
+```$ docker-compose up```
+```$docker-compose run app sh -c "python manage.py runserver"```
 
 ## License
 
