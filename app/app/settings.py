@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'pages',
     'listings',
     'realtors',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +143,8 @@ STATIC_ROOT = '/vol/web/static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static')
 ]
+
+# changing django default message tags to custome one
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
