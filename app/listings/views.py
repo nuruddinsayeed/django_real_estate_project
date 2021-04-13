@@ -35,11 +35,52 @@ def listing(request, list_id):
 
 def search(request):
     """renders search page"""
+    queryset_list = Listing.objects.order_by('-list_date')
+
+    if 'keywords' in request.GET:
+        keywords = request.GET['keywords']
+
+        # Checking if its none
+        if keywords:
+            queryset_list = queryset_list.filter(
+                description__icontains=keywords)
+
+    if 'city' in request.GET:
+        city = request.GET['city']
+
+        # Checking if its none
+        if city:
+            queryset_list = queryset_list.filter(
+                city__iexact=city)
+
+    if 'state' in request.GET:
+        state = request.GET['state']
+
+        # Checking if its none
+        if state:
+            queryset_list = queryset_list.filter(
+                state__iexact=state)
+
+    if 'bedrooms' in request.GET:
+        bedrooms = request.GET['bedrooms']
+
+        # Here LTE(lte) means less then or equal
+        if bedrooms:
+            queryset_list = queryset_list.filter(
+                bedrooms__lte=bedrooms)
+
+    if 'price' in request.GET:
+        price = request.GET['price']
+
+        # Here LTE(lte) means less then or equal
+        if price:
+            queryset_list = queryset_list.filter(
+                price__lte=price)
 
     context = {
         "price_choices": price_choices,
         "bedroom_choices": bedroom_choices,
-        "state_choices": state_choices
-    }
+        "state_choices": state_choices,
+        "listings": queryset_list}
 
     return render(request, 'listings/search.html', context)
