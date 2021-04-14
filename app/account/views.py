@@ -3,12 +3,20 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login, logout as auth_logout
+from contacts.models import Contact
 
 
 def dashboard(request):
     """Renders user dashboard page"""
 
-    return render(request, 'account/dashboard.html')
+    user_contacts = Contact.objects.order_by(
+        '-contact_date'
+    ).filter(user_id=request.user.id)
+    contaxt = {
+        'contacts': user_contacts
+    }
+
+    return render(request, 'account/dashboard.html', contaxt)
 
 # its callde login so I change default logoin to auth_login
 

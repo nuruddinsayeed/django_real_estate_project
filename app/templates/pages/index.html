@@ -1,6 +1,4 @@
 {% extends 'base.html' %}
-<!-- Loading content -->
-{% block content %}
 <!-- Load -->
 {% load static %}
 <!-- Load -->
@@ -8,9 +6,12 @@
 <!--load page title-->
 {% block title %}| Welcome{% endblock title %}
 <!--Display Alert-->
+
+<!-- Loading content -->
+{% block content %}
+<!-- Showcase -->
 {% include 'partials/_alerts.html' %}
 
-<!-- Showcase -->
 <section id="showcase">
   <div class="container text-center">
     <div class="home-search p-5">
