@@ -25,7 +25,11 @@ Thank you for your time.
 - Docker
 - TravisCI
 - git
-
+- 
+## Requirements
+- python3,
+- django,
+- Docker
 
 ## Installation
 
